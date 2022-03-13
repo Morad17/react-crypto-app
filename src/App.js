@@ -1,8 +1,9 @@
 import React from "react";
-import { Switch, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
 
-import { Navbar } from './components'
+import Navbar from './components/Navbar'
+import { Exchanges, Homepage, Cryptocurrencies, CryptoDetails, News } from './pages'
 
 function App() {
   return (
@@ -11,9 +12,33 @@ function App() {
         <Navbar />
       </div>
       <div className="main">
-      </div>
-      <div className="footer">
-
+        <Layout>
+          <div className="routes">
+            <Routes>
+              <Route path="/" element={<Homepage />}>
+              </Route>
+              <Route path="/exchanges" element={<Exchanges />}>
+              </Route>
+              <Route path="/cryptocurrencies" element={<Cryptocurrencies />}>
+              </Route>
+              <Route path="/crypto/:coinId" element={<CryptoDetails />}>
+              </Route> 
+              <Route path="/news" element={<News />}>
+              </Route>
+            </Routes>
+          </div>
+        </Layout>
+        <div className="footer" >
+          <Typography.Title level={5} style={{ color: 'white', textAlign: 'center', backgroundColor: '#001529'}}>
+            CryptoReact <br />
+            All Rights reserved
+          </Typography.Title>
+          <Space>
+            <Link to="/">Home</Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
     </div>
   );
