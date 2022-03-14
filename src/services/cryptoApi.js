@@ -10,7 +10,7 @@ const baseUrl = process.env.REACT_APP_CRYPTO_API_URL
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders})
 
 export const cryptoApi = createApi({
-    reducerPath: 'crypto',
+    reducerPath: 'cryptoApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getCryptos: builder.query({
@@ -19,6 +19,7 @@ export const cryptoApi = createApi({
     })
 })
 
+
 export const { 
     useGetCryptosQuery,
-} = cryptoApi;
+} = cryptoApi; 
