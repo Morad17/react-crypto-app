@@ -1,6 +1,7 @@
 @import './navbar' ;
 @import './home' ;
 @import './news';
+@import './cryptoDetails';
 
 
 
@@ -9,4 +10,8 @@
 
 :root{
     --red: rgb(99, 12, 12);
+}
+
+.bold{
+    font-weight: bold;
 }
