@@ -4,6 +4,7 @@ import moment from 'moment'
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import Loader from '../components/Loader'
 
 const { Text, Title, } = Typography
 const { Option } = Select
@@ -17,7 +18,8 @@ const News = ({simplified}) => {
   
 
 
-  if(!cryptoNews?.value) return 'Loading...'
+  if(!cryptoNews?.value) return <Loader />
+  
   return (
     <Row className="news-section"gutter={[ 24, 24]}>
       {!simplified && (

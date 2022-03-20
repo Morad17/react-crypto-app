@@ -7,6 +7,7 @@ import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCi
 
 import {useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import LineChart from '../components/LineChart'
+import Loader from '../components/Loader'
 
 const { Title, Text } = Typography
 const { Option } = Select
@@ -18,7 +19,6 @@ const CryptoDetails = () => {
   const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timeperiod})
   const cryptoDetails = data?.data?.coin
 
-  console.log(data)
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -38,7 +38,7 @@ const CryptoDetails = () => {
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
 
   return (
