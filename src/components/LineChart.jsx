@@ -1,8 +1,13 @@
 import React from 'react'
+import { Chart as ChartJS, registerables } from 'chart.js';
+import { Chart } from 'react-chartjs-2'
+
 import { Line } from 'react-chartjs-2'
 import { Col, Row, Typography} from 'antd'
 
 const { Title } = Typography
+
+ChartJS.register(...registerables);
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     const coinPrice = []
@@ -10,7 +15,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
     
 
-    for( let i = 0; i< coinHistory?.data?.history?.length; i += 1) {
+    for( let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
         coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString())
     }
 
