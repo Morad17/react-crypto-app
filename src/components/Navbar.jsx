@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Meny, Typography, Avatar, Menu } from 'antd'
+import { Button, Typography, Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 
@@ -11,11 +11,8 @@ const Navbar = () => {
 
     useEffect(() =>{
         const handleResize = () => setScreenSize(window.innerWidth)
-
         window.addEventListener("resize", handleResize)
-
         handleResize()
-
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
