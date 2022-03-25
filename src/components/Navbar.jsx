@@ -3,7 +3,7 @@ import { Button, Meny, Typography, Avatar, Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 
-import icon from '../assets/images/cryptocurrency.png'
+import icon from '../assets/images/crypto.png'
 
 const Navbar = () => {
     const [ activeMenu, setActiveMenu ] = useState(true)
@@ -29,25 +29,25 @@ const Navbar = () => {
     return (
     <div className="navbar-container">
         <div className="logo-container">
-            <Avatar src={icon} size="large" />
-            <Typography.Title level={2} className="logo">
+            <img src={icon} size="large" className="logo-img" />
+            <Typography.Title level={2} className="logo-heading">
                 <Link to="/">CryptoReact</Link>
             </Typography.Title>
             <Button className="menu-controller-container" onClick={() => setActiveMenu(!activeMenu)}>
             </Button>
         </div>
         { activeMenu && (
-            <Menu theme="dark">
-                <Menu.Item icon={<HomeOutlined />}>
+            <Menu theme="dark" mode="horizontal">
+                <Menu.Item key="home" icon={<HomeOutlined />}>
                     <Link to="/">Home</Link>
                 </Menu.Item>
-                <Menu.Item icon={<FundOutlined />}>
+                <Menu.Item key="cry" icon={<FundOutlined />}>
                     <Link to="/cryptocurrencies">cryptocurrencies</Link>
                 </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
+                <Menu.Item key="" icon={<MoneyCollectOutlined />}>
                     <Link to="/exchanges">Exchanges</Link>
                 </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
+                <Menu.Item key="" icon={<BulbOutlined />}>
                     <Link to="news">News</Link>
                 </Menu.Item>
             </Menu>
